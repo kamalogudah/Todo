@@ -14,13 +14,14 @@ defmodule Todos.Router do
   end
 
   scope "/", Todos do
-    pipe_through :browser # Use the default browser stack
+   pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
-  end
+   get "/", PageController, :index
+   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Todos do
-  #   pipe_through :api
-  # end
+  scope "/api", Todos do
+     pipe_through :api
+     resources "/todos", TodoController
+  end
 end
