@@ -22,6 +22,6 @@ defmodule Todos.Router do
   # Other scopes may use custom stacks.
   scope "/api", Todos do
      pipe_through :api
-     resources "/todos", TodoController
+     resources "/todos", TodoController, only: [:index, :show]
   end
 end
